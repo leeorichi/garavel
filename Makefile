@@ -11,7 +11,13 @@ API_CONTAINER ?= api
 api-setup: create-db db-migrate sqlboiler-psql
 
 build:
-	docker compose down && docker compose up -d ${API_CONTAINER} --build
+	docker compose down && docker compose up -d ${API_CONTAINER} --build && clear && docker logs getgo-${API_CONTAINER} -f
+
+tidy:
+	cd api && go mod tidy
+
+vendor:
+	cd api && go mod vendor
 
 api-run:
 	docker compose up -d ${API_CONTAINER}

@@ -5,11 +5,11 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/kytruong0712/getgo/api/internal/appconfig/db/pg"
-	"github.com/kytruong0712/getgo/api/internal/controller/products"
-	"github.com/kytruong0712/getgo/api/internal/httpserver"
-	"github.com/kytruong0712/getgo/api/internal/repository"
-	"github.com/kytruong0712/getgo/api/internal/repository/generator"
+	"github.com/leeorichi/getgo/api/internal/appconfig/db/pg"
+	"github.com/leeorichi/getgo/api/internal/controller/products"
+	"github.com/leeorichi/getgo/api/internal/httpserver"
+	"github.com/leeorichi/getgo/api/internal/repository"
+	"github.com/leeorichi/getgo/api/internal/repository/generator"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package repository
 import (
 	"database/sql"
 
-	"github.com/kytruong0712/getgo/api/internal/repository/inventory"
+	"github.com/leeorichi/getgo/api/internal/repository/inventory"
 )
 
 type Registry interface {

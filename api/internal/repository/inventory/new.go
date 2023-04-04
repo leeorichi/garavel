@@ -1,14 +1,16 @@
 package inventory
 
 import (
-	"database/sql"
 	"context"
-	"github.com/kytruong0712/getgo/api/internal/model"
+	"database/sql"
+
+	"github.com/leeorichi/getgo/api/internal/model"
 )
 
 type Repository interface {
 	// specification
 	CreateProduct(context.Context, model.Product) (model.Product, error)
+	DeleteProduct(context.Context, string) (bool, error)
 }
 
 func New(db *sql.DB) Repository {

@@ -2,8 +2,8 @@ package products
 
 import (
 	"context"
-	"github.com/kytruong0712/getgo/api/internal/model"
-	"github.com/kytruong0712/getgo/api/internal/pkg/uid"
+	"github.com/leeorichi/getgo/api/internal/model"
+	"github.com/leeorichi/getgo/api/internal/pkg/uid"
 )
 
 // CreateInput represents for input to create Product

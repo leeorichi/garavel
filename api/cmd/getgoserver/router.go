@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	product "github.com/kytruong0712/getgo/api/internal/controller/products"
-	"github.com/kytruong0712/getgo/api/internal/handler/rest/v1/products"
+	product "github.com/leeorichi/getgo/api/internal/controller/products"
+	"github.com/leeorichi/getgo/api/internal/handler/rest/v1/products"
 )
 
 type router struct {
@@ -31,9 +31,10 @@ func (rtr router) public(r chi.Router) {
 
 		// products
 		r.Group(func(r chi.Router) {
-			pattern := prefix + "/products/"
+			pattern := prefix + "/products"
 
 			r.Post(pattern, products.New(rtr.productCtrl).Create())
+			r.Delete(pattern+"/{eid}", products.New(rtr.productCtrl).Delete()) // delete product by external identifier
 		})
 	})
 }

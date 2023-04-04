@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"github.com/kytruong0712/getgo/api/internal/pkg/snowflake"
+	"github.com/leeorichi/getgo/api/internal/pkg/snowflake"
 )
 
 var (
