@@ -1,2 +1,1 @@
-# go-tidypj
-Golang Tidy Project
+# getgo
