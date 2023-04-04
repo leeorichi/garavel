@@ -9,6 +9,7 @@ import (
 	"github.com/leeorichi/getgo/api/internal/repository/generator"
 	pkgerrors "github.com/pkg/errors"
 	"github.com/volatiletech/sqlboiler/v4/boil"
+	"github.com/volatiletech/sqlboiler/v4/queries/qm"
 )
 
 func (i impl) CreateProduct(ctx context.Context, m model.Product) (model.Product, error) {
@@ -38,7 +39,9 @@ func (i impl) CreateProduct(ctx context.Context, m model.Product) (model.Product
 }
 
 func (i impl) DeleteProduct(ctx context.Context, eid string) (bool, error) {
-	p, err := dbmodel.FindProduct(ctx, i.db, 1)
+
+	p, err := dbmodel.Products(qm.Where("external_id = ?", eid)).One(ctx, i.db)
+	// p, err := dbmodel.FindProduct(ctx, i.db, 1)
 	if err != nil {
 		fmt.Println("===> inventory")
 		fmt.Println(err)
@@ -46,8 +49,6 @@ func (i impl) DeleteProduct(ctx context.Context, eid string) (bool, error) {
 
 		return false, err
 	}
-	fmt.Println(p.Name)
-	fmt.Println(p.ID)
 
 	p.Delete(ctx, i.db)
 	return true, nil
