@@ -35,6 +35,7 @@ func (rtr router) public(r chi.Router) {
 
 			r.Post(pattern, products.New(rtr.productCtrl).Create())
 			r.Delete(pattern+"/{eid}", products.New(rtr.productCtrl).Delete()) // delete product by external identifier
+			r.Get(pattern+"/{eid}", products.New(rtr.productCtrl).Show())      // delete product by external identifier
 		})
 	})
 }

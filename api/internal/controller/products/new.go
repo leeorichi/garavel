@@ -11,6 +11,7 @@ import (
 type Controller interface {
 	Create(context.Context, CreateInput) (model.Product, error)
 	Delete(context.Context, string) (bool, error)
+	Show(context.Context, string) (model.Product, error)
 }
 
 // New returns an implementation instance which satisfying Controller

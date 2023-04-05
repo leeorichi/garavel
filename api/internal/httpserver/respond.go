@@ -1,8 +1,8 @@
 package httpserver
 
 import (
-	"net/http"
 	"encoding/json"
+	"net/http"
 )
 
 // Success is the response format when http handler succeeds

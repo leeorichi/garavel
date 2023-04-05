@@ -29,12 +29,12 @@ func (p ProductStatus) IsValid() bool {
 
 // Product represents the business model of product
 type Product struct {
-	ID          int64
+	ID          int64 `json:"-"`
 	Price       int64
-	ExternalID  string
+	ExternalID  string `json:"Id"`
 	Description string
 	Name        string
 	Status      ProductStatus
-	CreatedAt   time.Time
-	UpdatedAt   time.Time
+	CreatedAt   time.Time `json:"-"`
+	UpdatedAt   time.Time `json:"-"`
 }

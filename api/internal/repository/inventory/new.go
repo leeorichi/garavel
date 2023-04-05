@@ -11,6 +11,7 @@ type Repository interface {
 	// specification
 	CreateProduct(context.Context, model.Product) (model.Product, error)
 	DeleteProduct(context.Context, string) (bool, error)
+	ShowProduct(context.Context, string) (model.Product, error)
 }
 
 func New(db *sql.DB) Repository {
