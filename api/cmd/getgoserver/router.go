@@ -33,9 +33,16 @@ func (rtr router) public(r chi.Router) {
 		r.Group(func(r chi.Router) {
 			pattern := prefix + "/products"
 
+			r.Get(pattern, products.New(rtr.productCtrl).All()) // All product by external identifier
+
+			r.Get(pattern+"/{eid}", products.New(rtr.productCtrl).Show()) // detail product by external identifier
+
 			r.Post(pattern, products.New(rtr.productCtrl).Create())
+
+			r.Put(pattern+"/{eid}", products.New(rtr.productCtrl).Update())
+
 			r.Delete(pattern+"/{eid}", products.New(rtr.productCtrl).Delete()) // delete product by external identifier
-			r.Get(pattern+"/{eid}", products.New(rtr.productCtrl).Show())      // delete product by external identifier
+
 		})
 	})
 }

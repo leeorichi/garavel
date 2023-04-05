@@ -78,6 +78,26 @@ func (i impl) ShowProduct(ctx context.Context, eid string) (model.Product, error
 	return prod, nil
 }
 
-// func (i impl) UpdateProduct(ctx context.Context, id int, m model.Product) (model.Product, error) {
-// 	// return
-// }
+func (i impl) AllProduct(ctx context.Context) (dbmodel.ProductSlice, error) {
+	if p, err := dbmodel.Products().All(ctx, i.db); err != nil {
+		return nil, err
+	} else {
+		return p, nil
+	}
+}
+
+func (i impl) UpdateProduct(ctx context.Context, m model.Product, eid string) (model.Product, error) {
+	p, err := dbmodel.Products(qm.Where("external_id = ?", eid)).One(ctx, i.db)
+	if err != nil {
+		return model.Product{}, err
+	}
+
+	p.Name = m.Name
+	p.Description = m.Description
+	p.Price = m.Price
+
+	if _, err := p.Update(ctx, i.db, boil.Infer()); err != nil {
+		return model.Product{}, err
+	}
+	return m, nil
+}
