@@ -1,6 +1,6 @@
 package products
 
-import "github.com/kytruong0712/getgo/api/internal/controller/products"
+import "github.com/leeorichi/getgo/api/internal/controller/products"
 
 // Handler is the web handler for this pkg
 type Handler struct {

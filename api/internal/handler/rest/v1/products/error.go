@@ -3,7 +3,7 @@ package products
 import (
 	"net/http"
 
-	"github.com/kytruong0712/getgo/api/internal/httpserver"
+	"github.com/leeorichi/getgo/api/internal/httpserver"
 )
 
 const ErrCodeValidationFailed = "validation_failed"

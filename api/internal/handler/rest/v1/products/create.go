@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/kytruong0712/getgo/api/internal/controller/products"
-	"github.com/kytruong0712/getgo/api/internal/httpserver"
+	"github.com/leeorichi/getgo/api/internal/controller/products"
+	"github.com/leeorichi/getgo/api/internal/httpserver"
 )
 
 // Create creates new product
