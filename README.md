@@ -1,2 +1,2 @@
-# go-tidypj
+# Garavel
 Golang Tidy Project
