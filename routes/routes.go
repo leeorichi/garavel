@@ -10,5 +10,10 @@ import (
 
 func Init(m *http.ServeMux) *http.ServeMux {
 	m.HandleFunc("/", controllers.Index)
+
+	m.HandleFunc("/hello", controllers.Hello)
+
+	m.HandleFunc("/upload", controllers.UploadFile)
+
 	return m
 }
